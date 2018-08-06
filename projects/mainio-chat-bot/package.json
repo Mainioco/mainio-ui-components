@@ -1,5 +1,5 @@
 {
-  "name": "@mainioco/mainio-chat-bot",
+  "name": "mainio-chat-bot",
   "version": "0.0.1",
   "whitelistedNonPeerDependencies": [
     "mainio-forms"
