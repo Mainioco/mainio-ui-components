@@ -17,14 +17,12 @@ import {
 } from "../../services/chat-bot-action.service";
 
 @Component({
-  selector: "app-chat-bot",
+  selector: "mainio-chat-bot",
   templateUrl: "./chat-bot.component.html",
   styleUrls: ["./chat-bot.component.css"],
   encapsulation: ViewEncapsulation.None
 })
 export class ChatBotComponent implements OnInit {
-  @Input() messages: Array<IAskOutputDto>;
-  @Input() messageCount: number;
   @Output() onSubmit: EventEmitter<any> = new EventEmitter<any>();
   @ViewChild("chatContainer") chatContainer;
   enabled: boolean = false;
@@ -49,6 +47,13 @@ export class ChatBotComponent implements OnInit {
     });
   }
 
+  get messages(): Array<IAskOutputDto> {
+    return this._bot.messages;
+  }
+
+  get messageCount(): number {
+    return this._bot.messages.length;
+  }
   ngOnInit() {
     this._bot.botStatus.subscribe(x => {
       this.enabled = x.enabled;

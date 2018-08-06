@@ -1,4 +1,5 @@
 import { NgModule } from "@angular/core";
+import { HttpModule } from "@angular/http";
 import { CommonModule } from "@angular/common";
 import { ComponentsModule } from "./components/components.module";
 import { ServicesModule } from "./services/services.module";
@@ -11,7 +12,8 @@ import { MatCardModule, MatButtonModule } from "@angular/material";
     ServicesModule,
     MainioFormsModule,
     MatCardModule,
-    MatButtonModule
+    MatButtonModule,
+    HttpModule
   ],
   declarations: [],
   exports: [ComponentsModule]

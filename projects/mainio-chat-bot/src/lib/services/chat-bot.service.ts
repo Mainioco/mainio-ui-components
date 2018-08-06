@@ -99,14 +99,7 @@ export class ChatBotService {
     | ((key: string, value: any) => any)
     | undefined = undefined;
 
-  constructor(
-    private _router: Router,
-    private http: HttpClient,
-    private _paramParser: ParameterParserService
-  ) {
-    _router.events.subscribe((event: NavigationEnd) => {
-      this._botData.url = event.url;
-    });
+  constructor(private http: HttpClient) {
     this.botStatus.next(this._botStatus);
   }
 

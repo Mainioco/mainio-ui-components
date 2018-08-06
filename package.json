@@ -26,6 +26,7 @@
     "core-js": "^2.5.4",
     "rxjs": "^6.0.0",
     "mainio-forms": "0.2.2",
+    "rxjs-compat": "6.0.0-tactical-rc.1",
     "zone.js": "^0.8.26"
   },
   "devDependencies": {
