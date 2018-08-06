@@ -1,6 +1,6 @@
 {
   "name": "mainio-chat-bot",
-  "version": "0.2.3",
+  "version": "0.2.4",
   "whitelistedNonPeerDependencies": [
     "mainio-forms"
   ],
@@ -33,7 +33,6 @@
     "type": "git",
     "url": "https://github.com/Mainioco/mainio-ui-components.git"
   },
-  "files": [],
   "private": false,
   "dependencies": {
     "mainio-forms": "0.2.2"
