@@ -4,11 +4,12 @@ import {
   InteractionStatus
 } from "./chat-bot-action.service";
 import { HttpClient, HttpHeaders } from "@angular/common/http";
-import { environment } from "../../../environments/environment";
+
 @Injectable({
   providedIn: "root"
 })
 export class BotActionsCompletedService {
+  public apiPath: string;
   constructor(
     private http: HttpClient,
     private _actionService: ChatBotActionService
@@ -33,7 +34,7 @@ export class BotActionsCompletedService {
 
   private post(x: InteractionStatus, wasSuccess: boolean) {
     let url_ =
-      environment.apiPath +
+      this.apiPath +
       "/api/services/app/IntentResolverService/PostSuccessStatus";
     url_ = url_.replace(/[?&]$/, "");
 
