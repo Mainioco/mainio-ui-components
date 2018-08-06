@@ -1,14 +1,10 @@
 import { Injectable } from "@angular/core";
-import { Observable, Subject, of } from "rxjs";
-import { flatMap } from "rxjs/operators";
-import { Router, NavigationEnd } from "@angular/router";
+import { Subject } from "rxjs";
 import {
   HttpClient,
   HttpHeaders,
-  HttpParams,
   HttpResponse,
-  HttpResponseBase,
-  HttpErrorResponse
+  HttpResponseBase
 } from "@angular/common/http";
 
 import "rxjs/add/observable/fromPromise";
@@ -20,10 +16,8 @@ import "rxjs/add/operator/mergeMap";
 import "rxjs/add/operator/catch";
 import {
   IChatBotAction,
-  IChatBotUserInputAction,
-  ChatBotActionService
+  IChatBotUserInputAction
 } from "./chat-bot-action.service";
-import { ParameterParserService } from "./bot-response-parameter-parser/parameter-parser.service";
 import { AskInput } from "./models/ask-input";
 
 export class AskOutputDto implements IAskOutputDto {

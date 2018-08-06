@@ -1,10 +1,11 @@
 import { BrowserModule } from "@angular/platform-browser";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { NgModule } from "@angular/core";
-import { MainioChatBotModule } from "MainioChatBot";
+import { MainioChatBotModule } from "mainio-chat-bot";
 import { AppComponent } from "./app.component";
 import { HttpClientModule } from "@angular/common/http";
-import { MatButtonModule } from "../../node_modules/@angular/material";
+import { MatButtonModule } from "@angular/material";
+import { MarkdownModule, MarkedOptions } from "ngx-markdown";
 @NgModule({
   declarations: [AppComponent],
   imports: [
@@ -12,7 +13,21 @@ import { MatButtonModule } from "../../node_modules/@angular/material";
     BrowserAnimationsModule,
     MatButtonModule,
     MainioChatBotModule,
-    HttpClientModule
+    HttpClientModule,
+    MarkdownModule.forRoot({
+      markedOptions: {
+        provide: MarkedOptions,
+        useValue: {
+          gfm: true,
+          tables: true,
+          breaks: true,
+          pedantic: false,
+          sanitize: false,
+          smartLists: true,
+          smartypants: false
+        }
+      }
+    })
   ],
   providers: [],
   bootstrap: [AppComponent]

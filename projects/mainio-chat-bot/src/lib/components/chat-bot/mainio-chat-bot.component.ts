@@ -18,11 +18,11 @@ import {
 
 @Component({
   selector: "mainio-chat-bot",
-  templateUrl: "./chat-bot.component.html",
-  styleUrls: ["./chat-bot.component.css"],
+  templateUrl: "./mainio-chat-bot.component.html",
+  styleUrls: ["./mainio-chat-bot.component.css"],
   encapsulation: ViewEncapsulation.None
 })
-export class ChatBotComponent implements OnInit {
+export class MainioChatBotComponent implements OnInit {
   @Output() onSubmit: EventEmitter<any> = new EventEmitter<any>();
   @ViewChild("chatContainer") chatContainer;
   enabled: boolean = false;
