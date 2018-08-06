@@ -116,6 +116,46 @@
           }
         }
       }
+    },
+    "MainioChatBot": {
+      "root": "projects/mainio-chat-bot",
+      "sourceRoot": "projects/mainio-chat-bot/src",
+      "projectType": "library",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "projects/mainio-chat-bot/tsconfig.lib.json",
+            "project": "projects/mainio-chat-bot/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "project": "projects/mainio-chat-bot/ng-package.prod.json"
+            }
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/mainio-chat-bot/src/test.ts",
+            "tsConfig": "projects/mainio-chat-bot/tsconfig.spec.json",
+            "karmaConfig": "projects/mainio-chat-bot/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/mainio-chat-bot/tsconfig.lib.json",
+              "projects/mainio-chat-bot/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
     }
   },
   "defaultProject": "MainioUIComponents"

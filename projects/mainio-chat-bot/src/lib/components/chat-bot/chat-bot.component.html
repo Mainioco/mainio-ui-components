@@ -1,0 +1,46 @@
+<div style="position:absolute;height:100vh;width: 100vw;">
+  <ul class=" ">
+    <li class="tool-item--primary m-nav-sticky__item" data-toggle="m-tooltip" title="" data-placement="left" data-original-title="Help"
+      (click)="showChatBot()" [ngClass]="enabled ? 'visible-bot' : ''">
+      <i class="fas fa-robot
+       center-align"></i>
+    </li>
+  </ul>
+
+  <div class="hidden " [ngClass]="enabled ? 'bot-chat-container' : ''">
+
+    <div #chatContainer class="container .align-bottom" style="max-height:100%;height:calc(100% - 120px);min-height:200px;overflow-y: scroll;margin-right: 0;">
+      <div class="" *ngFor="let x of messages; let isLastMessage = last">
+        <div class="my-2">
+          <b>You:</b> {{x.question}}
+        </div>
+        <div style="display: flex;align-content: center;align-items: center;">
+          <span class="bot-starter">
+            <i>We: </i>
+          </span>
+          <span *ngIf="x.response" style="background-color:rgb(230,230,230);border-radius: 5px;padding: 10px;">
+            <span [innerHtml]="x.response | markdown" class="bot-response"></span>
+          </span>
+          <span *ngIf="!x.response">
+            <mat-progress-spinner class="example-margin" color="primary" mode="indeterminate" diameter="16">
+            </mat-progress-spinner>
+          </span>
+
+        </div>
+        <div *ngIf="isLastMessage" style="display:flex;flex-wrap: wrap">
+          <app-action-row *ngFor="let action of x.userActions" [action]="action" (onclick)="userActionReceived($event,x)"></app-action-row>
+        </div>
+      </div>
+    </div>
+    <div #botWindow class="bot-input" style="padding:5%;">
+      <div style="height:90%;width:90%;background:white">
+        <app-dynamic-form [questions]="questions" submitButtonTitle="Send" (onSubmit)="onSubmitActions($event)" class="row align-items-center col-lg-12"
+          useOneRowLayout="true">
+        </app-dynamic-form>
+      </div>
+    </div>
+    <div>
+
+    </div>
+  </div>
+</div>

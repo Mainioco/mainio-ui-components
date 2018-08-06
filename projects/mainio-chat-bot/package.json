@@ -1,0 +1,40 @@
+{
+  "name": "@mainioco/mainio-chat-bot",
+  "version": "0.0.1",
+  "whitelistedNonPeerDependencies": [
+    "mainio-forms"
+  ],
+  "peerDependencies": {
+    "@angular/common": "^6.0.0-rc.0 || ^6.0.0",
+    "@angular/core": "^6.0.0-rc.0 || ^6.0.0",
+    "ngx-markdown": "^6.1.0",
+    "rxjs": "6.2.2"
+  },
+  "author": {
+    "name": "Juha Möttönen",
+    "email": "juha.mottonen@mainio.co",
+    "url": "https://twitter.com/JuhaMttnen"
+  },
+  "description": "Angular 6 bot for the portal",
+  "homepage": "https://github.com/Mainioco/mainio-ui-components",
+  "keywords": [
+    "mainio",
+    "angular",
+    "ui",
+    "components"
+  ],
+  "bugs": {
+    "email": "tutkimus@mainio.co",
+    "url": "https://github.com/Mainioco/mainio-ui-components/issues"
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Mainioco/mainio-ui-components.git"
+  },
+  "files": [],
+  "private": false,
+  "dependencies": {
+    "mainio-forms": "0.2.2"
+  }
+}
