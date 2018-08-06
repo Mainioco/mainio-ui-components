@@ -1,4 +1,12 @@
 /* reset */
+#mainio-chat-bot-container {
+  position: absolute;
+  height: calc(100vh - 17px);
+  width: calc(100vw - 17px);
+  left: 0;
+  top: 0;
+}
+
 li[class^="tool-item"] {
   width: auto;
   position: fixed;
