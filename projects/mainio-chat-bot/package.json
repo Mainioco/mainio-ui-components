@@ -1,6 +1,6 @@
 {
   "name": "mainio-chat-bot",
-  "version": "0.2.4",
+  "version": "0.3.0",
   "whitelistedNonPeerDependencies": [
     "mainio-forms"
   ],

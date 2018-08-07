@@ -23,6 +23,8 @@ import { AskInput } from "./models/ask-input";
 export class AskOutputDto implements IAskOutputDto {
   question: string | undefined;
   response: string | undefined;
+  media: string | undefined;
+  mediaType: string | undefined;
   actions?: IChatBotAction[] | undefined;
   userActions?: IChatBotUserInputAction[] | undefined;
 
@@ -36,11 +38,29 @@ export class AskOutputDto implements IAskOutputDto {
   }
 
   init(data?: any) {
-    if (data) {
+    if (!data) {
+      return;
+    }
+    if (data["result"]) {
       this.userActions = data["result"]["userActions"];
       this.actions = data["result"]["actions"];
       this.question = data["result"]["question"];
       this.response = data["result"]["response"];
+    } else {
+      if (data) {
+        this.question = data["question"];
+        this.response = data["response"];
+        this.media = data["media"];
+        this.mediaType = data["mediaType"];
+        if (data["actions"] && data["actions"].constructor === Array) {
+          this.actions = [];
+          for (let item of data["actions"]) this.actions.push(item);
+        }
+        if (data["userActions"] && data["userActions"].constructor === Array) {
+          this.userActions = [];
+          for (let item of data["userActions"]) this.userActions.push(item);
+        }
+      }
     }
   }
 
