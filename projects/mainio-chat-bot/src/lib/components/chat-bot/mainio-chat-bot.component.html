@@ -34,9 +34,10 @@
     </div>
     <div #botWindow class="bot-input" style="padding:5%;">
       <div style="height:90%;width:90%;background:white">
-        <app-dynamic-form [questions]="questions" submitButtonTitle="Send" (onSubmit)="onSubmitActions($event)" class="row align-items-center col-lg-12"
-          useOneRowLayout="true">
-        </app-dynamic-form>
+        <div style="display:flex;background: white">
+          <mainio-dynamic-form [questions]="questions" style="flex-grow: 1" (onStatusChage)="updateChatStatus($event)"></mainio-dynamic-form>
+          <button mat-flat-button color="primary" type="submit" [disabled]="!formValid " style="margin-left:10px" (click)="onSubmitActions()">Send</button>
+        </div>
       </div>
     </div>
     <div>

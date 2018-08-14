@@ -9,12 +9,13 @@ import {
   Input,
   OnChanges
 } from "@angular/core";
-import { InputQuestion, QuestionBase } from "mainio-forms";
+import { QuestionBase, InputQuestion } from "mainio-forms";
 import { ChatBotService, IAskOutputDto } from "../../services/chat-bot.service";
 import {
   ChatBotActionService,
   IChatBotUserInputAction
 } from "../../services/chat-bot-action.service";
+import { FormGroup } from "@angular/forms";
 
 @Component({
   selector: "mainio-chat-bot",
@@ -23,10 +24,14 @@ import {
   encapsulation: ViewEncapsulation.None
 })
 export class MainioChatBotComponent implements OnInit {
-  @Output() onSubmit: EventEmitter<any> = new EventEmitter<any>();
-  @ViewChild("chatContainer") chatContainer;
+  @Output()
+  onSubmit: EventEmitter<FormGroup> = new EventEmitter<FormGroup>();
+  @ViewChild("chatContainer")
+  chatContainer;
   enabled: boolean = false;
   location: string;
+  form: FormGroup;
+  formValid: boolean;
   questions: QuestionBase<any>[] = [
     new InputQuestion({
       key: "bot_input",
@@ -36,7 +41,8 @@ export class MainioChatBotComponent implements OnInit {
       required: true
     })
   ];
-  @ViewChild("botWindow") botWindowElement: ElementRef;
+  @ViewChild("botWindow")
+  botWindowElement: ElementRef;
 
   constructor(
     private _bot: ChatBotService,
@@ -63,8 +69,8 @@ export class MainioChatBotComponent implements OnInit {
   sendMessage() {
     this._bot.sendMessage("Hello!");
   }
-  onSubmitActions($event) {
-    this.onSubmit.emit($event);
+  onSubmitActions() {
+    this.onSubmit.emit(this.form);
   }
 
   userActionReceived(event: IChatBotUserInputAction, message: IAskOutputDto) {
@@ -74,7 +80,10 @@ export class MainioChatBotComponent implements OnInit {
   showChatBot() {
     this._bot.toggleBot();
   }
-
+  updateChatStatus(event: FormGroup) {
+    this.form = event;
+    this.formValid = event.valid;
+  }
   ngOnChanges(changes: any) {
     setTimeout(() => {
       this.chatContainer.nativeElement.scrollTop = this.chatContainer.nativeElement.scrollHeight;

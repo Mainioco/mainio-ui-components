@@ -1,6 +1,6 @@
 {
   "name": "mainio-chat-bot",
-  "version": "0.3.0",
+  "version": "0.4.0",
   "whitelistedNonPeerDependencies": [
     "mainio-forms"
   ],
@@ -8,6 +8,7 @@
     "@angular/common": "^6.0.0-rc.0 || ^6.0.0",
     "@angular/core": "^6.0.0-rc.0 || ^6.0.0",
     "ngx-markdown": "^6.1.0",
+    "@angular/material": "6.4.2",
     "rxjs": "6.2.2",
     "rxjs-compat": "6.0.0-tactical-rc.1"
   },
@@ -35,6 +36,6 @@
   },
   "private": false,
   "dependencies": {
-    "mainio-forms": "0.2.2"
+    "mainio-forms": "1.0.0-alpha.1"
   }
 }
