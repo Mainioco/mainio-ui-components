@@ -101,6 +101,7 @@ export class ChatBotService {
   waitingWizard: AskOutputDto;
   actionIndex: number = 0;
   useCache: boolean = false;
+  onMessageReceived:Subject<AskOutputDto> = new Subject<AskOutputDto>();
   private _botData: BotData = {
     url: ""
   };
@@ -174,6 +175,7 @@ export class ChatBotService {
           ret.then(ret => {
             let ask = new AskOutputDto();
             ask.init(x);
+            this.onMessageReceived.next(ask);
             this.messages.push(ask);
             this.messages = this.cleanCachedMessages();
             this.messages = this.makeSureEachActionHasCancel(this.messages);
